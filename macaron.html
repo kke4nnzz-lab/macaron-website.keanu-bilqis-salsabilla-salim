@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lune & Crème — Artisan Macarons</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #FAF8F5;
+            --bg-secondary: #F2EDE4;
+            --text-dark: #2C2523;
+            --text-muted: #6E6560;
+            --accent: #9E5A4C;
+            --border-color: #E2DBD0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: #FAF8F5;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        .hero {
+            padding: 60px 8%;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .products {
+            padding: 60px 8%;
+            background-color: var(--bg-secondary);
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-beli {
+            background-color: var(--text-dark);
+            color: #fff;
+            border: none;
+            padding: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn-beli:hover {
+            background-color: var(--accent);
+        }
+
+        .checkout-section {
+            padding: 60px 8%;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            padding: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            font-size: 1rem;
+        }
+
+        .btn-submit {
+            background-color: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-submit:hover {
+            background-color: #83483C;
+        }
+
+        .success-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            padding: 40px 32px;
+            text-align: center;
+            display: none;
+        }
+
+        .success-card h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .success-card p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .summary-box-preview {
+            background-color: var(--bg-secondary);
+            padding: 16px;
+            text-align: left;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .btn-reset {
+            background-color: var(--text-dark);
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-reset:hover {
+            background-color: var(--accent);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Lune & Crème</a>
+        <a href="#checkout" style="color: var(--text-dark); text-decoration: none; font-weight: 600;">Form Pesanan</a>
+    </header>
+
+    <section class="hero">
+        <h1>Artisan Macarons</h1>
+        <p>Pilih varian favoritmu di bawah ini dan isi formulir untuk melakukan pemesanan.</p>
+    </section>
+    <section class="products">
+        <h2 class="section-title">Pilih Varian</h2>
+        <div class="grid">
+            <div class="card">
+                <div>
+                    <h3>Nebula Berry</h3>
+                    <div class="price">Rp 25.000 / pcs</div>
+                    <p>Krim mascarpone lembut dengan selai bluberi liar.</p>
+                </div>
+                <button class="btn-beli" onclick="pilihProduk('Nebula Berry (Rp 25.000/pcs)')">Pilih Varian Ini</button>
+            </div>
+            <div class="card">
+                <div>
+                    <h3>Stardust Vanilla</h3>
+                    <div class="price">Rp 22.000 / pcs</div>
+                    <p>Ganache cokelat putih vanila Madagaskar asli.</p>
+                </div>
+                <button class="btn-beli" onclick="pilihProduk('Stardust Vanilla (Rp 22.000/pcs)')">Pilih Varian Ini</button>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Matcha & Peppermint</h3>
+                    <div class="price">Rp 24.000 / pcs</div>
+                    <p>Matcha Uji Kyoto grade seremonial dengan sentuhan mint.</p>
+                </div>
+                <button class="btn-beli" onclick="pilihProduk('Matcha & Peppermint (Rp 24.000/pcs)')">Pilih Varian Ini</button>
+            </div>
+        </div>
+    </section>
+    <section class="checkout-section" id="checkout">
+        <div class="form-card" id="formWrapper">
+            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 24px; text-align: center;">Formulir Pemesanan</h2>
+            <form id="orderForm" onsubmit="prosesPemesanan(event)">
+                <div class="form-group">
+                    <label>Pilihan Produk / Catatan Pesanan *</label>
+                    <input type="text" id="pilihan" required placeholder="Contoh: Beli Nebula Berry 3 pcs">
+                </div>
+                <div class="form-group">
+                    <label>Nama Lengkap *</label>
+                    <input type="text" id="nama" required placeholder="Nama Anda">
+                </div>
+                <div class="form-group">
+                    <label>Nomor WhatsApp *</label>
+                    <input type="tel" id="telepon" required placeholder="08xxxxxxxxxx">
+                </div>
+                <div class="form-group">
+                    <label>Metode Pengiriman *</label>
+                    <select id="pengiriman">
+                        <option value="Kurir Instan (GoSend/Grab)">Kurir Instan (GoSend / GrabExpress)</option>
+                        <option value="Ambil Sendiri di Toko">Ambil Sendiri di Toko (Pick-up)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Alamat Lengkap *</label>
+                    <textarea id="alamat" rows="3" required placeholder="Jalan, nomor rumah, catatan..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Konfirmasi Pesanan</button>
+            </form>
+        </div>
+        <div class="success-card" id="successWrapper">
+            <h2>Terima Kasih Telah Berbelanja!</h2>
+            <p>Mohon ditunggu paket anda! Pesanan Anda sedang dipersiapkan dengan penuh ketelitian oleh tim pastry kami.</p>
+            
+            <div class="summary-box-preview" id="summaryText">
+            </div>
+
+            <button class="btn-reset" onclick="resetForm()">Pesan Menu Lainnya</button>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2026 Lune & Crème Patisserie</p>
+    </footer>
+    <script>
+        function pilihProduk(namaProduk) {
+            const inputPilihan = document.getElementById('pilihan');
+            inputPilihan.value = namaProduk;
+            document.getElementById('checkout').scrollIntoView({ behavior: 'smooth' });
+            inputPilihan.focus();
+        }
+
+        function prosesPemesanan(event) {
+            event.preventDefault();
+
+            const produk = document.getElementById('pilihan').value;
+            const nama = document.getElementById('nama').value;
+            const telepon = document.getElementById('telepon').value;
+            const pengiriman = document.getElementById('pengiriman').value;
+            const alamat = document.getElementById('alamat').value;
+            const ringkasanHTML = `
+                <strong>Kepada:</strong> ${nama} (${telepon})<br>
+                <strong>Pesanan:</strong> ${produk}<br>
+                <strong>Pengiriman:</strong> ${pengiriman}<br>
+                <strong>Alamat Tujuan:</strong> ${alamat}
+            `;
+            document.getElementById('summaryText').innerHTML = ringkasanHTML;
+            document.getElementById('formWrapper').style.display = 'none';
+            document.getElementById('successWrapper').style.display = 'block';
+            document.getElementById('checkout').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetForm() {
+            document.getElementById('orderForm').reset();
+            document.getElementById('successWrapper').style.display = 'none';
+            document.getElementById('formWrapper').style.display = 'block';
+            document.getElementById('checkout').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
